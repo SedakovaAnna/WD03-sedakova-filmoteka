@@ -10,4 +10,5 @@ define('ROOT', dirname(__FILE__).'/'); //корневая директория
 
 // phpinfo();
 
+session_start();//начало сессии
 ?>

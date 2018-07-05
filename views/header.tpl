@@ -24,7 +24,35 @@
 
 		<div class="admin-nav mb-50">
 			<a href="index.php" class="admin-nav__link">Все фильмы</a>
-			<a href="new.php" class="admin-nav__link">Добавить новый фильм</a>	
-		</div>
 
+			<?php  
+			if ( isset($_SESSION['user']) ) {
+				if ( $_SESSION['user'] == 'service' ) { 
+					?>
+					<a href="new.php" class="admin-nav__link">Добавить новый фильм</a>	
+					<?php  
+				} 
+			}
+			?>
+
+			<?php  if ( !isAdmin() ) { ?>
+			<a href="request.php" class="admin-nav__link">Указать информацию</a>	
+			<a href="login.php" class="admin-nav__link">Вход на сайт</a>	
+			<?php } ?>
+
+
+			<?php  if ( isAdmin() ) { ?>
+			<a href="logout.php" class="admin-nav__link">Выход</a>
+			<?php }  ?>
+
+		</div>
+		<?php if ( isset($_COOKIE['user-name']) ) { ?>
+		<div class="container user-content mb-20">
+			<?php if ( isset($_COOKIE['user-city']) ) { ?>
+			<p>Привет, <?=$_COOKIE['user-name']?> из города <?=$_COOKIE['user-city']?>!</p>
+			<?php } else { ?>
+			<p>Привет, <?=$_COOKIE['user-name']?>!</p>
+			<?php } ?>
+		</div>
 		
+		<?php } ?>

@@ -6,6 +6,7 @@ require('database.php'); // функция подключения к БД
 $link = db_connect();// подключение к БД из database.php
 
 require('models/films.php'); // функции для работы с БД
+require('functions/login-functions.php'); // функция для входа на сайт 
 
 // Удаление фильма
 if ( @$_GET['action'] == 'delete') {
