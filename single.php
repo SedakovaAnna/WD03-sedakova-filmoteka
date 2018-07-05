@@ -19,13 +19,15 @@ if ( @$_GET['action'] == 'delete') {
 	}
 }
 
-$films = film_all($link); //получаем все фильмы из БД, models->films.php 
+$film = get_film($link, $_GET['id']);
 
-include('views/header.tpl'); //подключение шаблона начала страницы header.tpl
-include('views/notifications.tpl'); //подключение шаблона уведомлений notifications.tpl
-include('views/index.tpl'); //подключение шаблона середины страницы index.tpl
-include('views/footer.tpl'); //подключение шаблона конца страницы footer.tpl
+// echo "<pre>";
+// print_r($film);
+// echo "</pre>";
+
+include('views/header.tpl');
+include('views/notifications.tpl');
+include('views/film-single.tpl');
+include('views/footer.tpl');
 
 ?>
-
-
